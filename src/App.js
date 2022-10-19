@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import uniqid from 'uniqid';
 import './App.css';
+import BondGrid from './components/BondGrid';
 
 const App = () => {
   const Bond = (title, year) => {
     let guessed = false;
-    return { title, year, guessed };
+    const id = uniqid();
+    return { title, year, guessed, id };
   };
   const orderedBonds = [
     Bond('Dr. No', 1962),
@@ -28,6 +31,20 @@ const App = () => {
     }
     setUnguessedBonds(shuffledArray);
   };
+  const guessBond = (e) => {
+    const bondIndex = unguessedBonds.findIndex(
+      (bond) => bond.title === e.target.textContent
+    );
+    const unguessedClone = [...unguessedBonds];
+    const guessedClone = [...guessedBonds];
+    guessedClone.push(...unguessedClone.splice(bondIndex, 1));
+    setUnguessedBonds(unguessedClone);
+    setGuessedBonds(guessedClone);
+    console.log('unguessedClone');
+    console.log(unguessedClone);
+    console.log('guessedClone');
+    console.log(guessedClone);
+  };
 
   return (
     <div>
@@ -37,13 +54,15 @@ const App = () => {
       <p>orderedBond at 3: {orderedBonds[3].title}</p>
       <p>orderedBond at 4: {orderedBonds[4].title}</p>
       <br></br>
-      <p>unguessed bond at 0: {unguessedBonds[0].title}</p>
-      <p>unguessed bond at 1: {unguessedBonds[1].title}</p>
-      <p>unguessed bond at 2: {unguessedBonds[2].title}</p>
-      <p>unguessed bond at 3: {unguessedBonds[3].title}</p>
-      <p>unguessed bond at 4: {unguessedBonds[4].title}</p>
+      <BondGrid
+        isGuessedGrid={false}
+        bondArray={unguessedBonds}
+        handleGuess={guessBond}
+      />
       <br></br>
       <button onClick={shuffleBonds}>Shuffle</button>
+      <br></br>
+      <BondGrid isGuessedGrid={true} bondArray={guessedBonds} />
     </div>
   );
 };

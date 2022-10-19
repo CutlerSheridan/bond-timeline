@@ -6,17 +6,36 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- write logic to move unguessed Bond to guessed array
+- make guessed Bond display as proper color
 
 #### TODO LATER
 
 ##### Features
 
+- add restart button
+- add reveal button
+- add score counter
+- add persistent best score
+- ? clear best score button
+- non-Eon toggle?
+
 ##### Behavior
+
+- add win screen
+- add lose screen
 
 ##### Style
 
+- black card with gold outline, gold underline, white cursive sans-serif letters
+- make guessed cards display more info
+
 #### DONE
+
+_0.2.0_
+
+- add Bond card component
+- add Bond grid component
+- write logic to move unguessed Bond to guessed array upon click
 
 _0.1.1_
 
