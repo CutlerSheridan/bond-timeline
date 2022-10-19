@@ -1,0 +1,6 @@
+.guessed.correct {
+  color: green;
+}
+.guessed.incorrect {
+  color: red;
+}

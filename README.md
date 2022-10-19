@@ -6,13 +6,12 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- make guessed Bond display as proper color
+- make game end upon wrong answer
 
 #### TODO LATER
 
 ##### Features
 
-- add restart button
 - add reveal button
 - add score counter
 - add persistent best score
@@ -30,6 +29,11 @@ Click on the name of each movie in chronological order and see if you can make i
 - make guessed cards display more info
 
 #### DONE
+
+_0.3.0_
+
+- make guessed Bonds display as proper color
+- add restart button
 
 _0.2.0_
 
