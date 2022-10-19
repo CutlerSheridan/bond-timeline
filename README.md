@@ -6,14 +6,14 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- make game end upon wrong answer
+- add score counter
 
 #### TODO LATER
 
 ##### Features
 
+- make game end upon wrong answer
 - add reveal button
-- add score counter
 - add persistent best score
 - ? clear best score button
 - non-Eon toggle?
@@ -26,9 +26,18 @@ Click on the name of each movie in chronological order and see if you can make i
 ##### Style
 
 - black card with gold outline, gold underline, white cursive sans-serif letters
-- make guessed cards display more info
+
+##### Maybe
+
+- add actor to guessed bonds
 
 #### DONE
+
+_0.3.1_
+
+- display titles in grids
+- make clicking any part of bond card execute guess
+- make guessed cards display year
 
 _0.3.0_
 

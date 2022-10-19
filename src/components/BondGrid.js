@@ -12,18 +12,22 @@ const BondGrid = (props) => {
   };
 
   return (
-    <div className={isGuessedGrid ? 'grid-guessed' : 'grid-unguessed'}>
+    <div>
       <h2>{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
-      {bondArray.map((b, index) => {
-        return (
-          <BondCard
-            bond={b}
-            handleGuess={handleGuess}
-            isCorrect={isOrdered(b, index)}
-            key={b.id}
-          />
-        );
-      })}
+      <div
+        className={`grid ${isGuessedGrid ? 'grid-guessed' : 'grid-unguessed'}`}
+      >
+        {bondArray.map((b, index) => {
+          return (
+            <BondCard
+              bond={b}
+              handleGuess={handleGuess}
+              isCorrect={isOrdered(b, index)}
+              key={b.id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

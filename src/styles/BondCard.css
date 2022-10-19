@@ -1,6 +1,36 @@
-.guessed.correct {
-  color: green;
+.bond {
+  padding: 0.5rem;
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-style: italic;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  text-align: center;
 }
-.guessed.incorrect {
-  color: red;
+.bond-year {
+  margin: 0.3rem;
+  font-size: 1.3rem;
+  font-style: normal;
+}
+.bond-unguessed {
+  cursor: pointer;
+}
+.bond-unguessed:hover {
+  background: lightgrey;
+}
+.bond-unguessed:active {
+  background: white;
+}
+.bond-unguessed.bond-year {
+  display: none;
+}
+.bond-guessed.bond-correct {
+  background-color: lightgreen;
+}
+.bond-guessed.bond-incorrect {
+  background-color: pink;
 }

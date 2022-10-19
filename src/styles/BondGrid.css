@@ -1,0 +1,9 @@
+.grid {
+  margin: auto;
+  padding: 2rem 1rem;
+  max-width: 50rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  border: 1px solid pink;
+}

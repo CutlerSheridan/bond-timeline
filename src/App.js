@@ -38,7 +38,7 @@ const App = () => {
 
   const guessBond = (e) => {
     const bondIndex = unguessedBonds.findIndex(
-      (bond) => bond.title === e.target.textContent
+      (bond) => bond.title === e.currentTarget.dataset.title
     );
     const unguessedClone = [...unguessedBonds];
     const guessedClone = [...guessedBonds];

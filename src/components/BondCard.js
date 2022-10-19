@@ -2,10 +2,17 @@ import '../styles/BondCard.css';
 
 const BondCard = (props) => {
   const { bond, handleGuess, isCorrect } = props;
-  const guessedClass = bond.guessed ? 'guessed' : '';
+  const guessedClass = bond.guessed ? 'bond-guessed' : 'bond-unguessed';
   return (
-    <div className={`${guessedClass} ${isCorrect ? 'correct' : 'incorrect'}`}>
-      <p onClick={handleGuess}>{bond.title}</p>
+    <div
+      className={`bond ${guessedClass} ${
+        isCorrect ? 'bond-correct' : 'bond-incorrect'
+      }`}
+      onClick={handleGuess}
+      data-title={bond.title}
+    >
+      <p>{bond.title}</p>
+      <p className={`bond-year ${guessedClass}`}>{bond.year}</p>
     </div>
   );
 };
