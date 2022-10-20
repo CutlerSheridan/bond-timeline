@@ -15,7 +15,7 @@ const App = () => {
     };
   };
   // if variable isn't in state, objects are recreated every render and ids don't match
-  const [orderedBonds] = useState([
+  const [orderedBonds, setOrderedBonds] = useState([
     Bond('Dr. No', 1962),
     Bond('From Russia with Love', 1963),
     Bond('Goldfinger', 1964),
@@ -23,6 +23,24 @@ const App = () => {
     Bond('You Only Live Twice', 1967),
     Bond("On Her Majesty's Secret Service", 1969),
     Bond('Diamonds Are Forever', 1971),
+    Bond('Live and Let Die', 1973),
+    Bond('The Man with the Golden Gun', 1974),
+    Bond('The Spy Who Loved Me', 1977),
+    Bond('Moonraker', 1979),
+    Bond('For Your Eyes Only', 1981),
+    Bond('Octopussy', 1983),
+    Bond('A View to a Kill', 1985),
+    Bond('The Living Daylights', 1987),
+    Bond('Licence to Kill', 1989),
+    Bond('GoldenEye', 1995),
+    Bond('Tomorrow Never Dies', 1997),
+    Bond('The World Is Not Enought', 1999),
+    Bond('Die Another Day', 2002),
+    Bond('Casino Royale', 2006),
+    Bond('Quantum of Solace', 2008),
+    Bond('Skyfall', 2012),
+    Bond('Spectre', 2015),
+    Bond('Not Time to Die', 2021),
   ]);
   const [unguessedBonds, setUnguessedBonds] = useState([...orderedBonds]);
   const [guessedBonds, setGuessedBonds] = useState([]);
@@ -90,6 +108,11 @@ const App = () => {
     const unguessedGrid = document.querySelector('.grid-container');
     unguessedGrid.classList.remove('static');
   };
+  const revealAnswers = () => {
+    orderedBonds.forEach((bond) => (bond.guessed = true));
+    setUnguessedBonds([]);
+    setGuessedBonds([...orderedBonds]);
+  };
 
   return (
     <div className="game-container">
@@ -112,6 +135,7 @@ const App = () => {
       <div className="controls-container">
         <button onClick={restart}>Restart</button>
         <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
+        <button onClick={revealAnswers}>Reveal</button>
       </div>
 
       <section>

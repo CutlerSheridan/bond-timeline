@@ -6,7 +6,7 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- add Reveal button
+- add non-Eon toggle that repopulates unguessed with non-Eon titles and reshuffles them
 
 #### TODO LATER
 
@@ -14,12 +14,12 @@ Click on the name of each movie in chronological order and see if you can make i
 
 - make best score persistent
 - ? clear best score button
-- non-Eon toggle?
 
 ##### Behavior
 
 - add win screen
 - add lose screen
+- make it so using Reveal does not add 1 to score
 - ? if issue persists after styling, get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
 - ? reshuffle unguessed bonds after every guess
 
@@ -32,6 +32,11 @@ Click on the name of each movie in chronological order and see if you can make i
 - add credit
 
 #### DONE
+
+_0.5.0_
+
+- add Reveal button
+- add all bond titles
 
 _0.4.3_
 
