@@ -6,13 +6,12 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- add score counter
+- make game end upon wrong answer
 
 #### TODO LATER
 
 ##### Features
 
-- make game end upon wrong answer
 - add reveal button
 - add persistent best score
 - ? clear best score button
@@ -33,6 +32,14 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### DONE
 
+_0.4.0_
+
+- add score counter
+- fix guessed Bonds retaining color in unguessed grid upon restart
+  - it's not due to the useEffect() scoring logic
+  - it's because, when orderedBonds was not in state, the Bond objects were getting recreated every render, so each bond.guessed got reset to false each time; now that it's in state, it retains bond.guessed as true
+  - fixed by reverting all guessed bonds to guessed = false upon restart
+
 _0.3.2_
 
 - refactor order check logic
@@ -47,6 +54,8 @@ _0.3.0_
 
 - make guessed Bonds display as proper color
 - add restart button
+- fix restart button so guessed bonds show back up in unguessed
+  - fixed this by adding state needsShuffling and passing it as a dependency to a useEffect() instead of calling shuffleBonds() straight from the restart method as the asynchronicity was fucking it up
 
 _0.2.0_
 

@@ -8,7 +8,7 @@ const BondGrid = (props) => {
     if (!isGuessedGrid) {
       return null;
     }
-    return bondArray[guessedIndex].title === orderedBonds[guessedIndex].title;
+    return bondArray[guessedIndex].id === orderedBonds[guessedIndex].id;
   };
 
   return (
