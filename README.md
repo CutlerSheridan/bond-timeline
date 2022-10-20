@@ -33,6 +33,10 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### DONE
 
+_0.3.2_
+
+- refactor order check logic
+
 _0.3.1_
 
 - display titles in grids

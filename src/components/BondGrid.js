@@ -4,11 +4,11 @@ import BondCard from './BondCard';
 const BondGrid = (props) => {
   const { isGuessedGrid, bondArray, handleGuess, orderedBonds } = props;
 
-  const isOrdered = (bond, guessedIndex) => {
+  const isOrdered = (guessedIndex) => {
     if (!isGuessedGrid) {
       return null;
     }
-    return bond.order === guessedIndex;
+    return bondArray[guessedIndex].title === orderedBonds[guessedIndex].title;
   };
 
   return (
@@ -22,7 +22,7 @@ const BondGrid = (props) => {
             <BondCard
               bond={b}
               handleGuess={handleGuess}
-              isCorrect={isOrdered(b, index)}
+              isCorrect={isOrdered(index)}
               key={b.id}
             />
           );

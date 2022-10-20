@@ -4,17 +4,17 @@ import './App.css';
 import BondGrid from './components/BondGrid';
 
 const App = () => {
-  const Bond = (title, year, order) => {
+  const Bond = (title, year) => {
     let guessed = false;
     const id = uniqid();
-    return { title, year, order, guessed, id };
+    return { title, year, guessed, id };
   };
   const orderedBonds = [
-    Bond('Dr. No', 1962, 0),
-    Bond('From Russia with Love', 1963, 1),
-    Bond('Goldfinger', 1964, 2),
-    Bond('Thunderball', 1965, 3),
-    Bond('You Only Live Twice', 1967, 4),
+    Bond('Dr. No', 1962),
+    Bond('From Russia with Love', 1963),
+    Bond('Goldfinger', 1964),
+    Bond('Thunderball', 1965),
+    Bond('You Only Live Twice', 1967),
   ];
   const [unguessedBonds, setUnguessedBonds] = useState([...orderedBonds]);
   const [guessedBonds, setGuessedBonds] = useState([]);
@@ -71,7 +71,11 @@ const App = () => {
       <button onClick={restart}>Restart</button>
       <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
       <br></br>
-      <BondGrid isGuessedGrid={true} bondArray={guessedBonds} />
+      <BondGrid
+        isGuessedGrid={true}
+        bondArray={guessedBonds}
+        orderedBonds={orderedBonds}
+      />
     </div>
   );
 };
