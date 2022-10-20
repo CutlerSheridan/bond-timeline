@@ -14,13 +14,15 @@ const App = () => {
       id,
     };
   };
-  // if not in state, objects are recreated every render and ids don't match
+  // if variable isn't in state, objects are recreated every render and ids don't match
   const [orderedBonds] = useState([
     Bond('Dr. No', 1962),
     Bond('From Russia with Love', 1963),
     Bond('Goldfinger', 1964),
     Bond('Thunderball', 1965),
     Bond('You Only Live Twice', 1967),
+    Bond("On Her Majesty's Secret Service", 1969),
+    Bond('Diamonds Are Forever', 1971),
   ]);
   const [unguessedBonds, setUnguessedBonds] = useState([...orderedBonds]);
   const [guessedBonds, setGuessedBonds] = useState([]);
@@ -56,7 +58,7 @@ const App = () => {
         }
       } else {
         console.log('game should end');
-        const unguessedGrid = document.querySelector('.grid');
+        const unguessedGrid = document.querySelector('.grid-container');
         unguessedGrid.classList.add('static');
         // update bestScore
       }
@@ -85,51 +87,43 @@ const App = () => {
     setUnguessedBonds([...orderedBonds]);
     setNeedsShuffling(true);
     setScore(0);
-    const unguessedGrid = document.querySelector('.grid');
+    const unguessedGrid = document.querySelector('.grid-container');
     unguessedGrid.classList.remove('static');
   };
 
   return (
-    <div>
-      <h2>Correct order</h2>
-      <p>{orderedBonds[0].title}</p>
-      <p>{orderedBonds[1].title}</p>
-      <p>{orderedBonds[2].title}</p>
-      <p>{orderedBonds[3].title}</p>
-      <p>{orderedBonds[4].title}</p>
-      <br></br>
+    <div className="game-container">
+      <h1>007</h1>
       <h3>
         Score: {score} / {orderedBonds.length}
       </h3>
       <h3>
         Best Score: {bestScore} / {orderedBonds.length}
       </h3>
-      <BondGrid
-        isGuessedGrid={false}
-        bondArray={unguessedBonds}
-        handleGuess={guessBond}
-      />
       <br></br>
-      <button onClick={restart}>Restart</button>
-      <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
-      {/* <button
-        onClick={() => {
-          console.log('1st ordered');
-          console.log(orderedBonds[0]);
-          console.log('1st unguessed');
-          console.log(unguessedBonds[0]);
-          console.log('1st guessed');
-          console.log(guessedBonds[0]);
-        }}
-      >
-        log 1st bonds
-      </button> */}
+      <div className="controls-container">
+        <button onClick={restart}>Restart</button>
+        <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
+      </div>
       <br></br>
-      <BondGrid
-        isGuessedGrid={true}
-        bondArray={guessedBonds}
-        orderedBonds={orderedBonds}
-      />
+      <section>
+        <BondGrid
+          isGuessedGrid={false}
+          bondArray={unguessedBonds}
+          handleGuess={guessBond}
+        />
+        <br></br>
+        <BondGrid
+          isGuessedGrid={true}
+          bondArray={guessedBonds}
+          orderedBonds={orderedBonds}
+        />
+      </section>
+      <br></br>
+      <h2>Correct order:</h2>
+      {orderedBonds.map((bond) => {
+        return <div key={`ordered-${bond.id}`}>{bond.title}</div>;
+      })}
     </div>
   );
 };

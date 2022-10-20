@@ -6,13 +6,14 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- black card with gold outline, gold underline, white cursive sans-serif letters
+- make title big
+- make scores beset title
 
 #### TODO LATER
 
 ##### Features
 
-- add reveal button
+- add Reveal button
 - make best score persistent
 - ? clear best score button
 - non-Eon toggle?
@@ -25,9 +26,8 @@ Click on the name of each movie in chronological order and see if you can make i
 
 ##### Style
 
-- center everything
-- add big title
 - add instructions
+- style control buttons
 - add credit
 
 ##### Maybe
@@ -35,6 +35,13 @@ Click on the name of each movie in chronological order and see if you can make i
 - add actor to guessed bonds
 
 #### DONE
+
+_0.4.2_
+
+- make everything look a little nicer - rearrange things, add flexboxes, center things, change some colors
+- style unguessed cards
+- style guessed cards
+- make underlines thinner
 
 _0.4.1_
 

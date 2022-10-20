@@ -11,8 +11,8 @@ const BondCard = (props) => {
       onClick={handleGuess}
       data-title={bond.title}
     >
-      <p>{bond.title}</p>
-      <p className={`bond-year ${guessedClass}`}>{bond.year}</p>
+      <div className="bond-title">{bond.title}</div>
+      <div className={`bond-year ${guessedClass}`}>{bond.year}</div>
     </div>
   );
 };

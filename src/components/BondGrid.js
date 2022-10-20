@@ -12,8 +12,8 @@ const BondGrid = (props) => {
   };
 
   return (
-    <div>
-      <h2>{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
+    <div className="grid-container">
+      <h2 className="grid-name">{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
       <div
         className={`grid ${isGuessedGrid ? 'grid-guessed' : 'grid-unguessed'}`}
       >

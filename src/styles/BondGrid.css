@@ -1,3 +1,9 @@
+.grid-container.static {
+  pointer-events: none;
+}
+.grid-name {
+  text-align: center;
+}
 .grid {
   margin: auto;
   padding: 2rem 1rem;
@@ -5,8 +11,4 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  border: 1px solid pink;
-}
-.grid.static {
-  pointer-events: none;
 }

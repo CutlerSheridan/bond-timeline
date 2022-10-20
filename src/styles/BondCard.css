@@ -1,36 +1,57 @@
 .bond {
-  padding: 0.5rem;
+  padding: 0.8rem;
   min-height: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-style: italic;
-  border: 2px solid black;
+  border: 2px solid var(--clr-sec);
   border-radius: 0.5rem;
   text-align: center;
+  background: var(--clr-sec);
+  color: var(--clr-3);
+}
+.bond-title {
+  text-decoration: underline;
+  text-decoration-thickness: 0.12rem;
+  font-weight: 500;
+  /* font-weight: bold; */
 }
 .bond-year {
   margin: 0.3rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-style: normal;
+  text-decoration: none;
 }
+
+/* UNGUESSED */
+
 .bond-unguessed {
   cursor: pointer;
 }
 .bond-unguessed:hover {
-  background: lightgrey;
+  border-color: var(--clr-sec-dark);
+  background: var(--clr-sec-dark);
 }
 .bond-unguessed:active {
-  background: white;
+  background: var(--clr-sec);
 }
 .bond-unguessed.bond-year {
   display: none;
 }
+
+/* GUESSED */
+
+.bond-guessed {
+  color: var(--clr-pri);
+}
 .bond-guessed.bond-correct {
-  background-color: lightgreen;
+  border-color: transparent;
+  background-color: rgb(134, 248, 134, 0.45);
 }
 .bond-guessed.bond-incorrect {
-  background-color: pink;
+  border-color: transparent;
+  background-color: rgb(255, 193, 203, 0.45);
 }

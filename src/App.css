@@ -1,5 +1,12 @@
 :root {
+  --clr-pri: rgb(239, 239, 239);
+  --clr-sec: goldenrod;
+  --clr-sec-dark: rgb(183, 134, 11);
+  --clr-3: rgb(7, 7, 7);
+  --clr-3-light: rgb(77, 77, 77);
   font-size: 62.5%;
+  background: var(--clr-3);
+  color: var(--clr-pri);
 }
 * {
   margin: 0;
@@ -12,4 +19,14 @@ body {
   height: 100%;
   width: 100%;
   font-size: 2rem;
+}
+
+/* h1 {
+  margin: auto;
+  text-align: center;
+} */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
