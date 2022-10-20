@@ -6,14 +6,14 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- make game end upon wrong answer
+- black card with gold outline, gold underline, white cursive sans-serif letters
 
 #### TODO LATER
 
 ##### Features
 
 - add reveal button
-- add persistent best score
+- make best score persistent
 - ? clear best score button
 - non-Eon toggle?
 
@@ -21,16 +21,25 @@ Click on the name of each movie in chronological order and see if you can make i
 
 - add win screen
 - add lose screen
+- ? if issue persists after styling, get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
 
 ##### Style
 
-- black card with gold outline, gold underline, white cursive sans-serif letters
+- center everything
+- add big title
+- add instructions
+- add credit
 
 ##### Maybe
 
 - add actor to guessed bonds
 
 #### DONE
+
+_0.4.1_
+
+- make game end upon wrong answer
+- add best score
 
 _0.4.0_
 

@@ -26,6 +26,7 @@ const App = () => {
   const [guessedBonds, setGuessedBonds] = useState([]);
   const [needsShuffling, setNeedsShuffling] = useState(true);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     if (needsShuffling) {
@@ -54,10 +55,18 @@ const App = () => {
           // win logic
         }
       } else {
-        // end game logic
+        console.log('game should end');
+        const unguessedGrid = document.querySelector('.grid');
+        unguessedGrid.classList.add('static');
+        // update bestScore
       }
     }
   }, [guessedBonds]);
+  useEffect(() => {
+    if (score > bestScore) {
+      setBestScore(score);
+    }
+  }, [score]);
 
   const guessBond = (e) => {
     const bondIndex = unguessedBonds.findIndex(
@@ -76,6 +85,8 @@ const App = () => {
     setUnguessedBonds([...orderedBonds]);
     setNeedsShuffling(true);
     setScore(0);
+    const unguessedGrid = document.querySelector('.grid');
+    unguessedGrid.classList.remove('static');
   };
 
   return (
@@ -89,6 +100,9 @@ const App = () => {
       <br></br>
       <h3>
         Score: {score} / {orderedBonds.length}
+      </h3>
+      <h3>
+        Best Score: {bestScore} / {orderedBonds.length}
       </h3>
       <BondGrid
         isGuessedGrid={false}

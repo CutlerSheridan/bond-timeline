@@ -7,3 +7,6 @@
   gap: 2rem;
   border: 1px solid pink;
 }
+.grid.static {
+  pointer-events: none;
+}
