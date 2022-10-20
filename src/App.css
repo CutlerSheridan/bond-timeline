@@ -21,10 +21,21 @@ body {
   font-size: 2rem;
 }
 
-/* h1 {
-  margin: auto;
+header {
+  display: flex;
+  align-items: flex-end;
+}
+h1 {
+  font-size: 13rem;
+  font-style: italic;
+}
+.score-container {
   text-align: center;
-} */
+}
+.score {
+  font-weight: bold;
+  color: var(--clr-sec);
+}
 .game-container {
   display: flex;
   flex-direction: column;

@@ -31,12 +31,14 @@
 .bond-unguessed {
   cursor: pointer;
 }
-.bond-unguessed:hover {
-  border-color: var(--clr-sec-dark);
-  background: var(--clr-sec-dark);
-}
-.bond-unguessed:active {
-  background: var(--clr-sec);
+@media (hover: hover) {
+  .bond-unguessed:hover {
+    border-color: var(--clr-sec-dark);
+    background: var(--clr-sec-dark);
+  }
+  .bond-unguessed:active {
+    background: var(--clr-sec);
+  }
 }
 .bond-unguessed.bond-year {
   display: none;

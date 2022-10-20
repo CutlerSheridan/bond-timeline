@@ -6,14 +6,12 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- make title big
-- make scores beset title
+- add Reveal button
 
 #### TODO LATER
 
 ##### Features
 
-- add Reveal button
 - make best score persistent
 - ? clear best score button
 - non-Eon toggle?
@@ -23,18 +21,22 @@ Click on the name of each movie in chronological order and see if you can make i
 - add win screen
 - add lose screen
 - ? if issue persists after styling, get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
+- ? reshuffle unguessed bonds after every guess
 
 ##### Style
 
 - add instructions
 - style control buttons
+- adjust card and font sizes for mobile
+- ? add actor to guessed bonds
 - add credit
 
-##### Maybe
-
-- add actor to guessed bonds
-
 #### DONE
+
+_0.4.3_
+
+- make title big
+- make scores beset title
 
 _0.4.2_
 

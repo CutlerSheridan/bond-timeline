@@ -93,33 +93,40 @@ const App = () => {
 
   return (
     <div className="game-container">
-      <h1>007</h1>
-      <h3>
-        Score: {score} / {orderedBonds.length}
-      </h3>
-      <h3>
-        Best Score: {bestScore} / {orderedBonds.length}
-      </h3>
-      <br></br>
+      <header>
+        <div className="score-container">
+          <div className="score-label">Score:</div>
+          <div className="score">
+            {score} / {orderedBonds.length}
+          </div>
+        </div>
+        <h1>007</h1>
+        <div className="score-container">
+          <div className="score-label">Best:</div>
+          <div className="score">
+            {bestScore} / {orderedBonds.length}
+          </div>
+        </div>
+      </header>
+
       <div className="controls-container">
         <button onClick={restart}>Restart</button>
         <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
       </div>
-      <br></br>
+
       <section>
         <BondGrid
           isGuessedGrid={false}
           bondArray={unguessedBonds}
           handleGuess={guessBond}
         />
-        <br></br>
         <BondGrid
           isGuessedGrid={true}
           bondArray={guessedBonds}
           orderedBonds={orderedBonds}
         />
       </section>
-      <br></br>
+
       <h2>Correct order:</h2>
       {orderedBonds.map((bond) => {
         return <div key={`ordered-${bond.id}`}>{bond.title}</div>;
