@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import './App.css';
 import BondGrid from './components/BondGrid';
+import GameOverBanner from './components/GameOverBanner';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
       ? JSON.parse(localStorage.getItem('bestScore'))
       : 0
   );
+  const [winOrLose, setWinOrLose] = useState(null);
   const [includeNonEon, setIncludeNonEon] = useState(false);
 
   // check for end of game
@@ -71,14 +73,14 @@ const App = () => {
           score === orderedBonds.length - 1
         ) {
           setScore(guessedBonds.length);
-        }
-        if (lastGuessed.id === orderedBonds[orderedBonds.length - 1].id) {
-          // win logic
+          if (lastGuessed.id === orderedBonds[orderedBonds.length - 1].id) {
+            setWinOrLose('win');
+          }
         }
       } else {
-        console.log('game should end');
         const unguessedGrid = document.querySelector('.grid');
         unguessedGrid.classList.add('static');
+        setWinOrLose('lose');
       }
     }
   }, [guessedBonds, unguessedBonds]);
@@ -161,6 +163,7 @@ const App = () => {
     setUnguessedBonds([...orderedBonds]);
     setNeedsShuffling(true);
     setScore(0);
+    setWinOrLose(null);
     const unguessedGrid = document.querySelector('.grid');
     unguessedGrid.classList.remove('static');
   };
@@ -227,6 +230,8 @@ const App = () => {
           orderedBonds={orderedBonds}
         />
       </section>
+
+      <GameOverBanner winOrLose={winOrLose} />
 
       <Footer />
 

@@ -19,10 +19,8 @@
   align-items: center;
   text-align: center;
   font-size: 1.4rem;
-  /* border: 1px solid pink; */
 }
 .eonToggle-container > input[type='checkbox'] {
-  /* margin: 0.9rem 0.4rem 0 0; */
   margin-right: 0.5rem;
 }
 

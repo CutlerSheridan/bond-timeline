@@ -8,9 +8,6 @@ For an extra challenge, check the box to include the Bond movies that weren't pr
 
 #### TODO NEXT
 
-- add win screen
-- add lose screen
-
 #### TODO LATER
 
 ##### Features
@@ -26,6 +23,12 @@ For an extra challenge, check the box to include the Bond movies that weren't pr
 - ? add actor to guessed bonds
 
 #### DONE
+
+_1.0.0_
+
+- add win/lose banner
+- animate game over banner to fade in then fade out
+- add gh-pages deployment information
 
 _0.5.7_
 
