@@ -6,14 +6,12 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- add credit
+- make best score persistent
+- add clear best score button
 
 #### TODO LATER
 
 ##### Features
-
-- make best score persistent
-- add clear best score button
 
 ##### Behavior
 
@@ -29,6 +27,11 @@ Click on the name of each movie in chronological order and see if you can make i
 - ? add actor to guessed bonds
 
 #### DONE
+
+_0.5.5_
+
+- add credit
+- adjust breakpoints; add a four-column middle range
 
 _0.5.4_
 

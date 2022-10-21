@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import './App.css';
 import BondGrid from './components/BondGrid';
+import Footer from './components/Footer';
 
 const App = () => {
   const Bond = (title, year) => {
@@ -213,6 +214,8 @@ const App = () => {
           orderedBonds={orderedBonds}
         />
       </section>
+
+      <Footer />
 
       {/* <h2>Correct order:</h2>
       {orderedBonds.map((bond) => {

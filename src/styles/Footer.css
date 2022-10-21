@@ -1,0 +1,15 @@
+footer {
+  align-self: flex-start;
+  margin: 3.5rem 0 2rem 2.1rem;
+  font-size: 1.6rem;
+  font-family: monospace;
+  line-height: 2rem;
+  color: white;
+}
+footer a,
+footer a:active {
+  color: white;
+}
+footer a:hover {
+  color: lightgrey;
+}
