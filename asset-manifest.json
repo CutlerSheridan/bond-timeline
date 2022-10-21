@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bond-timeline/static/css/main.a2e3e43e.css",
+    "main.js": "/bond-timeline/static/js/main.31e36ca1.js",
+    "static/js/787.22803a0d.chunk.js": "/bond-timeline/static/js/787.22803a0d.chunk.js",
+    "index.html": "/bond-timeline/index.html",
+    "main.a2e3e43e.css.map": "/bond-timeline/static/css/main.a2e3e43e.css.map",
+    "main.31e36ca1.js.map": "/bond-timeline/static/js/main.31e36ca1.js.map",
+    "787.22803a0d.chunk.js.map": "/bond-timeline/static/js/787.22803a0d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2e3e43e.css",
+    "static/js/main.31e36ca1.js"
+  ]
+}
