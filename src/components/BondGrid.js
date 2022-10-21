@@ -2,7 +2,14 @@ import '../styles/BondGrid.css';
 import BondCard from './BondCard';
 
 const BondGrid = (props) => {
-  const { isGuessedGrid, bondArray, handleGuess, orderedBonds } = props;
+  const {
+    isGuessedGrid,
+    bondArray,
+    handleGuess,
+    orderedBonds,
+    includeNonEon,
+    toggleEon,
+  } = props;
 
   const isOrdered = (guessedIndex) => {
     if (!isGuessedGrid) {
@@ -13,7 +20,18 @@ const BondGrid = (props) => {
 
   return (
     <div className="grid-container">
-      <h2 className="grid-name">{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
+      <div className="grid-name-container">
+        <h2 className="grid-name">{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
+        <div className="eonToggle-container">
+          <input
+            type="checkbox"
+            onChange={toggleEon}
+            id="eonToggle"
+            checked={includeNonEon}
+          ></input>
+          <label htmlFor="eonToggle">Include non-Eon titles</label>
+        </div>
+      </div>
       <div
         className={`grid ${isGuessedGrid ? 'grid-guessed' : 'grid-unguessed'}`}
       >

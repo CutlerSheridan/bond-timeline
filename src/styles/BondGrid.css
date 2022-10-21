@@ -1,16 +1,27 @@
-.grid-container.static {
-  pointer-events: none;
-}
 .grid-container {
   margin: 2.6rem 0;
-  /* border: 1px solid pink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid.static {
+  pointer-events: none;
+}
+.grid-name-container {
+  position: relative;
 }
 .grid-name {
   text-align: center;
 }
+.eonToggle-container {
+  /* position: absolute;
+  top: 0;
+  right: -3rem; */
+  /* border: 1px solid red; */
+}
 .grid {
-  margin: auto;
   padding: 2rem 1rem 0 1rem;
+  width: 100%;
   max-width: 50rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -40,13 +40,18 @@ const App = () => {
     Bond('Quantum of Solace', 2008),
     Bond('Skyfall', 2012),
     Bond('Spectre', 2015),
-    Bond('Not Time to Die', 2021),
+    Bond('No Time to Die', 2021),
+  ]);
+  const [nonEonBonds] = useState([
+    Bond('Casino Royale (non-Eon)', 1967),
+    Bond('Never Say Never Again', 1983),
   ]);
   const [unguessedBonds, setUnguessedBonds] = useState([...orderedBonds]);
   const [guessedBonds, setGuessedBonds] = useState([]);
   const [needsShuffling, setNeedsShuffling] = useState(true);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [includeNonEon, setIncludeNonEon] = useState(false);
 
   useEffect(() => {
     if (needsShuffling) {
@@ -64,6 +69,7 @@ const App = () => {
       setNeedsShuffling(false);
     }
   }, [needsShuffling]);
+  // check for end of game
   useEffect(() => {
     if (guessedBonds.length >= 1) {
       const lastGuessedIndex = guessedBonds.length - 1;
@@ -76,17 +82,47 @@ const App = () => {
         }
       } else {
         console.log('game should end');
-        const unguessedGrid = document.querySelector('.grid-container');
+        const unguessedGrid = document.querySelector('.grid');
         unguessedGrid.classList.add('static');
-        // update bestScore
       }
     }
-  }, [guessedBonds]);
+  }, [guessedBonds, unguessedBonds]);
   useEffect(() => {
     if (score > bestScore) {
       setBestScore(score);
     }
   }, [score]);
+  useEffect(() => {
+    const orderedCopy = [...orderedBonds];
+    let unguessedCopy = [...unguessedBonds];
+    const firstIndex = orderedCopy.findIndex((x) => x.year === 1967);
+    const secondIndex = orderedCopy.findIndex((x) => x.year === 1983);
+
+    if (includeNonEon) {
+      orderedCopy.splice(firstIndex, 0, nonEonBonds[0]);
+      orderedCopy.splice(secondIndex + 1, 0, nonEonBonds[1]);
+      unguessedCopy.push(...nonEonBonds);
+    } else {
+      if (
+        orderedCopy.reduce((prev, current) => {
+          if (current.year === 1983) {
+            return prev + 1;
+          }
+          return prev;
+        }, 0) === 2
+      ) {
+        orderedCopy.splice(secondIndex + 1, 1);
+        orderedCopy.splice(firstIndex, 1);
+        unguessedCopy = unguessedCopy.filter(
+          (bond) =>
+            bond.id !== nonEonBonds[0].id && bond.id !== nonEonBonds[1].id
+        );
+      }
+    }
+
+    setOrderedBonds(orderedCopy);
+    setUnguessedBonds(unguessedCopy);
+  }, [includeNonEon]);
 
   const guessBond = (e) => {
     const bondIndex = unguessedBonds.findIndex(
@@ -105,13 +141,16 @@ const App = () => {
     setUnguessedBonds([...orderedBonds]);
     setNeedsShuffling(true);
     setScore(0);
-    const unguessedGrid = document.querySelector('.grid-container');
+    const unguessedGrid = document.querySelector('.grid');
     unguessedGrid.classList.remove('static');
   };
   const revealAnswers = () => {
     orderedBonds.forEach((bond) => (bond.guessed = true));
     setUnguessedBonds([]);
     setGuessedBonds([...orderedBonds]);
+  };
+  const toggleEon = () => {
+    setIncludeNonEon((prevState) => !prevState);
   };
 
   return (
@@ -143,6 +182,8 @@ const App = () => {
           isGuessedGrid={false}
           bondArray={unguessedBonds}
           handleGuess={guessBond}
+          includeNonEon={includeNonEon}
+          toggleEon={toggleEon}
         />
         <BondGrid
           isGuessedGrid={true}
@@ -151,10 +192,10 @@ const App = () => {
         />
       </section>
 
-      <h2>Correct order:</h2>
+      {/* <h2>Correct order:</h2>
       {orderedBonds.map((bond) => {
         return <div key={`ordered-${bond.id}`}>{bond.title}</div>;
-      })}
+      })} */}
     </div>
   );
 };
