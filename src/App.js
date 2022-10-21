@@ -60,7 +60,13 @@ const App = () => {
       const lastGuessed = guessedBonds[lastGuessedIndex];
       const matchingOrdered = orderedBonds[lastGuessedIndex];
       if (lastGuessed.id === matchingOrdered.id) {
-        setScore(guessedBonds.length);
+        // this conditional prevents getting perfect score by using Reveal
+        if (
+          guessedBonds.length < orderedBonds.length ||
+          score === orderedBonds.length - 1
+        ) {
+          setScore(guessedBonds.length);
+        }
         if (lastGuessed.id === orderedBonds[orderedBonds.length - 1].id) {
           // win logic
         }
@@ -83,8 +89,8 @@ const App = () => {
     const secondIndex = orderedCopy.findIndex((x) => x.year === 1983);
 
     if (includeNonEon) {
-      orderedCopy.splice(firstIndex, 0, nonEonBonds[0]);
       orderedCopy.splice(secondIndex + 1, 0, nonEonBonds[1]);
+      orderedCopy.splice(firstIndex, 0, nonEonBonds[0]);
       unguessedCopy.push(...nonEonBonds);
     } else {
       if (
@@ -182,6 +188,7 @@ const App = () => {
         <button onClick={restart}>Restart</button>
         <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
         <button onClick={revealAnswers}>Reveal</button>
+        <button onClick={() => console.log(orderedBonds)}>log ordered</button>
       </div>
 
       <section>
@@ -199,10 +206,10 @@ const App = () => {
         />
       </section>
 
-      {/* <h2>Correct order:</h2>
+      <h2>Correct order:</h2>
       {orderedBonds.map((bond) => {
         return <div key={`ordered-${bond.id}`}>{bond.title}</div>;
-      })} */}
+      })}
     </div>
   );
 };
