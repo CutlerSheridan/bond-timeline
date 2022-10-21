@@ -29,18 +29,18 @@ const App = () => {
     Bond('Moonraker', 1979),
     Bond('For Your Eyes Only', 1981),
     Bond('Octopussy', 1983),
-    Bond('A View to a Kill', 1985),
-    Bond('The Living Daylights', 1987),
-    Bond('Licence to Kill', 1989),
-    Bond('GoldenEye', 1995),
-    Bond('Tomorrow Never Dies', 1997),
-    Bond('The World Is Not Enought', 1999),
-    Bond('Die Another Day', 2002),
-    Bond('Casino Royale', 2006),
-    Bond('Quantum of Solace', 2008),
-    Bond('Skyfall', 2012),
-    Bond('Spectre', 2015),
-    Bond('No Time to Die', 2021),
+    // Bond('A View to a Kill', 1985),
+    // Bond('The Living Daylights', 1987),
+    // Bond('Licence to Kill', 1989),
+    // Bond('GoldenEye', 1995),
+    // Bond('Tomorrow Never Dies', 1997),
+    // Bond('The World Is Not Enought', 1999),
+    // Bond('Die Another Day', 2002),
+    // Bond('Casino Royale', 2006),
+    // Bond('Quantum of Solace', 2008),
+    // Bond('Skyfall', 2012),
+    // Bond('Spectre', 2015),
+    // Bond('No Time to Die', 2021),
   ]);
   const [nonEonBonds] = useState([
     Bond('Casino Royale (non-Eon)', 1967),
@@ -53,22 +53,6 @@ const App = () => {
   const [bestScore, setBestScore] = useState(0);
   const [includeNonEon, setIncludeNonEon] = useState(false);
 
-  useEffect(() => {
-    if (needsShuffling) {
-      const shuffleBonds = () => {
-        const tempBondArray = [...unguessedBonds];
-        const shuffledArray = [];
-        for (let i = 0; i < unguessedBonds.length; i++) {
-          const randomIndex = Math.floor(Math.random() * tempBondArray.length);
-          shuffledArray.push(...tempBondArray.splice(randomIndex, 1));
-        }
-        setUnguessedBonds(shuffledArray);
-      };
-
-      shuffleBonds();
-      setNeedsShuffling(false);
-    }
-  }, [needsShuffling]);
   // check for end of game
   useEffect(() => {
     if (guessedBonds.length >= 1) {
@@ -76,7 +60,7 @@ const App = () => {
       const lastGuessed = guessedBonds[lastGuessedIndex];
       const matchingOrdered = orderedBonds[lastGuessedIndex];
       if (lastGuessed.id === matchingOrdered.id) {
-        setScore((prevScore) => prevScore + 1);
+        setScore(guessedBonds.length);
         if (lastGuessed.id === orderedBonds[orderedBonds.length - 1].id) {
           // win logic
         }
@@ -117,12 +101,35 @@ const App = () => {
           (bond) =>
             bond.id !== nonEonBonds[0].id && bond.id !== nonEonBonds[1].id
         );
+        let guessedCopy = [...guessedBonds];
+        guessedCopy = guessedCopy.filter(
+          (bond) =>
+            bond.id !== nonEonBonds[0].id && bond.id !== nonEonBonds[1].id
+        );
+        setGuessedBonds(guessedCopy);
       }
     }
 
     setOrderedBonds(orderedCopy);
     setUnguessedBonds(unguessedCopy);
   }, [includeNonEon]);
+  useEffect(() => {
+    if (needsShuffling) {
+      const shuffleBonds = () => {
+        const tempBondArray = [...unguessedBonds];
+        const shuffledArray = [];
+        for (let i = 0; i < unguessedBonds.length; i++) {
+          const randomIndex = Math.floor(Math.random() * tempBondArray.length);
+          shuffledArray.push(...tempBondArray.splice(randomIndex, 1));
+        }
+        console.log('shuffled');
+        setUnguessedBonds(shuffledArray);
+      };
+
+      shuffleBonds();
+      setNeedsShuffling(false);
+    }
+  }, [needsShuffling]);
 
   const guessBond = (e) => {
     const bondIndex = unguessedBonds.findIndex(

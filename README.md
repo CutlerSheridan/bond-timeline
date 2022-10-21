@@ -6,7 +6,7 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- test adding non-Eon titles mid-game
+- make it so using Reveal doesn't affect score
 
 #### TODO LATER
 
@@ -17,11 +17,9 @@ Click on the name of each movie in chronological order and see if you can make i
 
 ##### Behavior
 
+- disable Eon toggle on end game screen
 - add win screen
 - add lose screen
-- make it so using Reveal does not add 1 to score
-- stop Eon toggle from adding 1 to score
-- decide if non-Eon titles should be toggle-able on end game screen
 - ? if issue persists after styling, get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
 - ? reshuffle unguessed bonds after every guess
 
@@ -31,11 +29,20 @@ Click on the name of each movie in chronological order and see if you can make i
 - style control buttons
 - add more columns for desktop
 - make all cards the same size
+- adjust grid gap on mobile
 - adjust card and font sizes for mobile
 - ? add actor to guessed bonds
 - add credit
 
 #### DONE
+
+_0.5.2_
+
+- change useEffect()s' orders so game shuffles upon first load
+- remove non-Eon titles from guessedBonds if any are in there
+- test adding non-Eon titles mid-game
+- stop non-Eon toggle from adding 1 to score each use
+- remove Eon toggle from Guessed grid
 
 _0.5.1_
 

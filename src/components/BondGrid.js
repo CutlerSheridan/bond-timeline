@@ -17,20 +17,25 @@ const BondGrid = (props) => {
     }
     return bondArray[guessedIndex].id === orderedBonds[guessedIndex].id;
   };
+  const eonToggle = isGuessedGrid ? (
+    <></>
+  ) : (
+    <div className="eonToggle-container">
+      <input
+        type="checkbox"
+        onChange={toggleEon}
+        id="eonToggle"
+        checked={includeNonEon}
+      ></input>
+      <label htmlFor="eonToggle">Include non-Eon titles</label>
+    </div>
+  );
 
   return (
     <div className="grid-container">
       <div className="grid-name-container">
         <h2 className="grid-name">{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
-        <div className="eonToggle-container">
-          <input
-            type="checkbox"
-            onChange={toggleEon}
-            id="eonToggle"
-            checked={includeNonEon}
-          ></input>
-          <label htmlFor="eonToggle">Include non-Eon titles</label>
-        </div>
+        {eonToggle}
       </div>
       <div
         className={`grid ${isGuessedGrid ? 'grid-guessed' : 'grid-unguessed'}`}
