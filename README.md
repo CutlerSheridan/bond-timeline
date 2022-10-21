@@ -24,6 +24,10 @@ For an extra challenge, check the box to include the Bond movies that weren't pr
 
 #### DONE
 
+_1.0.1_
+
+- alter HTML template
+
 _1.0.0_
 
 - add win/lose banner
