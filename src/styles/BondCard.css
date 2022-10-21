@@ -7,11 +7,15 @@
   align-items: center;
   font-size: 1.5rem;
   font-style: italic;
-  border: 2px solid var(--clr-sec);
   border-radius: 0.5rem;
   text-align: center;
   background: var(--clr-sec);
   color: var(--clr-3);
+}
+@media only screen and (min-width: 500px) {
+  .bond {
+    font-size: 1.7rem;
+  }
 }
 .bond-title {
   text-decoration: underline;
@@ -35,7 +39,6 @@
 }
 @media (hover: hover) {
   .bond-unguessed:hover {
-    border-color: var(--clr-sec-dark);
     background: var(--clr-sec-dark);
   }
   .bond-unguessed:active {
@@ -52,10 +55,8 @@
   color: var(--clr-pri);
 }
 .bond-guessed.bond-correct {
-  border-color: transparent;
   background-color: rgb(134, 248, 134, 0.45);
 }
 .bond-guessed.bond-incorrect {
-  border-color: transparent;
   background-color: rgb(255, 193, 203, 0.45);
 }

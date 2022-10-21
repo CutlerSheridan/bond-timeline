@@ -28,6 +28,11 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### DONE
 
+_0.5.6_
+
+- add breakpoint for Bond card font size
+- remove borders from Bond cards
+
 _0.5.5_
 
 - add credit
