@@ -16,8 +16,7 @@
 .bond-title {
   text-decoration: underline;
   text-decoration-thickness: 0.12rem;
-  font-weight: 500;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 .bond-year {
   margin: 0.3rem;
@@ -30,6 +29,9 @@
 
 .bond-unguessed {
   cursor: pointer;
+}
+.bond-unguessed:active {
+  background: var(--clr-sec-dark);
 }
 @media (hover: hover) {
   .bond-unguessed:hover {

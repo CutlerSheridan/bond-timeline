@@ -34,7 +34,9 @@ const BondGrid = (props) => {
   return (
     <div className="grid-container">
       <div className="grid-name-container">
-        <h2 className="grid-name">{isGuessedGrid ? 'Guessed' : 'Unguessed'}</h2>
+        <h2 className="grid-name">
+          {isGuessedGrid ? 'GUESSED' : 'BOND MOVIES'}
+        </h2>
         {eonToggle}
       </div>
       <div

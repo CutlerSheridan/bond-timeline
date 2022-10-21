@@ -6,41 +6,47 @@ Click on the name of each movie in chronological order and see if you can make i
 
 #### TODO NEXT
 
-- style grid labels
-- style control buttons
+- add credit
 
 #### TODO LATER
 
 ##### Features
 
 - make best score persistent
-- ? clear best score button
+- add clear best score button
 
 ##### Behavior
 
 - add win screen
 - add lose screen
-- ? if issue persists after styling, get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
+- ? get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
 - ? reshuffle unguessed bonds after every guess
 
 ##### Style
 
-- add instructions
-- add more columns for desktop
-- make all cards the same size
-- adjust grid gap on mobile
+- ? make all cards the same size
 - adjust card and font sizes for mobile
 - ? add actor to guessed bonds
-- add credit
 
 #### DONE
+
+_0.5.4_
+
+- add more columns for desktop
+- adjust grid gap on mobile
+- style grid labels
+- add instructions
+- add active indication to cards for touch controls
+- style control buttons
+- change fonts
+- restructure header
 
 _0.5.3_
 
 - make it so using Reveal doesn't affect score
 - fix Eon toggle so both non-Eon movies are added in the correct spots
 
-  _0.5.2_
+_0.5.2_
 
 - change useEffect()s' orders so game shuffles upon first load
 - remove non-Eon titles from guessedBonds if any are in there

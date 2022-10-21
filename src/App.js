@@ -29,18 +29,18 @@ const App = () => {
     Bond('Moonraker', 1979),
     Bond('For Your Eyes Only', 1981),
     Bond('Octopussy', 1983),
-    // Bond('A View to a Kill', 1985),
-    // Bond('The Living Daylights', 1987),
-    // Bond('Licence to Kill', 1989),
-    // Bond('GoldenEye', 1995),
-    // Bond('Tomorrow Never Dies', 1997),
-    // Bond('The World Is Not Enought', 1999),
-    // Bond('Die Another Day', 2002),
-    // Bond('Casino Royale', 2006),
-    // Bond('Quantum of Solace', 2008),
-    // Bond('Skyfall', 2012),
-    // Bond('Spectre', 2015),
-    // Bond('No Time to Die', 2021),
+    Bond('A View to a Kill', 1985),
+    Bond('The Living Daylights', 1987),
+    Bond('Licence to Kill', 1989),
+    Bond('GoldenEye', 1995),
+    Bond('Tomorrow Never Dies', 1997),
+    Bond('The World Is Not Enought', 1999),
+    Bond('Die Another Day', 2002),
+    Bond('Casino Royale', 2006),
+    Bond('Quantum of Solace', 2008),
+    Bond('Skyfall', 2012),
+    Bond('Spectre', 2015),
+    Bond('No Time to Die', 2021),
   ]);
   const [nonEonBonds] = useState([
     Bond('Casino Royale (non-Eon)', 1967),
@@ -128,7 +128,6 @@ const App = () => {
           const randomIndex = Math.floor(Math.random() * tempBondArray.length);
           shuffledArray.push(...tempBondArray.splice(randomIndex, 1));
         }
-        console.log('shuffled');
         setUnguessedBonds(shuffledArray);
       };
 
@@ -172,23 +171,32 @@ const App = () => {
         <div className="score-container">
           <div className="score-label">Score:</div>
           <div className="score">
-            {score} / {orderedBonds.length}
+            {22}/{orderedBonds.length}
           </div>
         </div>
         <h1>007</h1>
         <div className="score-container">
           <div className="score-label">Best:</div>
           <div className="score">
-            {bestScore} / {orderedBonds.length}
+            {22}/{orderedBonds.length}
           </div>
         </div>
       </header>
 
+      <p className="instructions">
+        Can you guess all the James Bond movies in chronological order?
+      </p>
+
       <div className="controls-container">
-        <button onClick={restart}>Restart</button>
-        <button onClick={() => setNeedsShuffling(true)}>Shuffle</button>
-        <button onClick={revealAnswers}>Reveal</button>
-        <button onClick={() => console.log(orderedBonds)}>log ordered</button>
+        <button className="control" onClick={restart}>
+          Restart
+        </button>
+        <button className="control" onClick={() => setNeedsShuffling(true)}>
+          Shuffle
+        </button>
+        <button className="control" onClick={revealAnswers}>
+          Reveal
+        </button>
       </div>
 
       <section>
@@ -206,10 +214,10 @@ const App = () => {
         />
       </section>
 
-      <h2>Correct order:</h2>
+      {/* <h2>Correct order:</h2>
       {orderedBonds.map((bond) => {
         return <div key={`ordered-${bond.id}`}>{bond.title}</div>;
-      })}
+      })} */}
     </div>
   );
 };
