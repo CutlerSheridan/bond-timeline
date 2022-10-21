@@ -1,13 +1,15 @@
 # James Bond Timeline Memory Game
 
-## Can you remember the order of all the Bond movies?
+## Can you remember the order of all the 007 movies?
 
 Click on the name of each movie in chronological order and see if you can make it to the end!
 
+For an extra challenge, check the box to include the Bond movies that weren't produced by Eon.
+
 #### TODO NEXT
 
-- make best score persistent
-- add clear best score button
+- add win screen
+- add lose screen
 
 #### TODO LATER
 
@@ -15,18 +17,20 @@ Click on the name of each movie in chronological order and see if you can make i
 
 ##### Behavior
 
-- add win screen
-- add lose screen
 - ? get rid of flicker upon restart as unguessedBonds is repopulated in order then shuffled
 - ? reshuffle unguessed bonds after every guess
 
 ##### Style
 
 - ? make all cards the same size
-- adjust card and font sizes for mobile
 - ? add actor to guessed bonds
 
 #### DONE
+
+_0.5.7_
+
+- make best score persistent
+- add Clear Best Score button
 
 _0.5.6_
 

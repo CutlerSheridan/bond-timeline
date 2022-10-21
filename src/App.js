@@ -51,7 +51,11 @@ const App = () => {
   const [guessedBonds, setGuessedBonds] = useState([]);
   const [needsShuffling, setNeedsShuffling] = useState(true);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [bestScore, setBestScore] = useState(
+    localStorage.getItem('bestScore') !== 'undefined'
+      ? JSON.parse(localStorage.getItem('bestScore'))
+      : 0
+  );
   const [includeNonEon, setIncludeNonEon] = useState(false);
 
   // check for end of game
@@ -136,6 +140,9 @@ const App = () => {
       setNeedsShuffling(false);
     }
   }, [needsShuffling]);
+  useEffect(() => {
+    localStorage.setItem('bestScore', JSON.stringify(bestScore));
+  }, [bestScore]);
 
   const guessBond = (e) => {
     const bondIndex = unguessedBonds.findIndex(
@@ -165,6 +172,9 @@ const App = () => {
   const toggleEon = () => {
     setIncludeNonEon((prevState) => !prevState);
   };
+  const clearBestScore = () => {
+    setBestScore(score);
+  };
 
   return (
     <div className="game-container">
@@ -172,14 +182,14 @@ const App = () => {
         <div className="score-container">
           <div className="score-label">Score:</div>
           <div className="score">
-            {22}/{orderedBonds.length}
+            {score}/{orderedBonds.length}
           </div>
         </div>
         <h1>007</h1>
         <div className="score-container">
           <div className="score-label">Best:</div>
           <div className="score">
-            {22}/{orderedBonds.length}
+            {bestScore}/{orderedBonds.length}
           </div>
         </div>
       </header>
@@ -197,6 +207,9 @@ const App = () => {
         </button>
         <button className="control" onClick={revealAnswers}>
           Reveal
+        </button>
+        <button className="control" onClick={() => setBestScore(score)}>
+          Clear Best
         </button>
       </div>
 
